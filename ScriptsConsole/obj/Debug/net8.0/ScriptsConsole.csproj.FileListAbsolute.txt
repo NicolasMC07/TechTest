@@ -1,0 +1,42 @@
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.deps.json
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.runtimeconfig.json
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfoInputs.cache
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfo.cs
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.csproj.CoreCompileInputs.cache
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/refint/ScriptsConsole.dll
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.genruntimeconfig.cache
+/home/rwadmin/Escritorio/TechTestMVC/ScriptsConsole/obj/Debug/net8.0/ref/ScriptsConsole.dll
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.deps.json
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.runtimeconfig.json
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfoInputs.cache
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfo.cs
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.csproj.CoreCompileInputs.cache
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/refint/ScriptsConsole.dll
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.genruntimeconfig.cache
+/home/rwadmin/Escritorio/NicolasMartinezCardona/ScriptsConsole/obj/Debug/net8.0/ref/ScriptsConsole.dll
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.deps.json
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.runtimeconfig.json
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/bin/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.GeneratedMSBuildEditorConfig.editorconfig
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfoInputs.cache
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.AssemblyInfo.cs
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.csproj.CoreCompileInputs.cache
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.dll
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/refint/ScriptsConsole.dll
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.pdb
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ScriptsConsole.genruntimeconfig.cache
+/home/rwadmin/Escritorio/Nueva carpeta/ScriptsConsole/obj/Debug/net8.0/ref/ScriptsConsole.dll

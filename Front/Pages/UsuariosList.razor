@@ -1,0 +1,226 @@
+@page "/usuarios"
+@using Front.Models
+@using Front.Services
+@using Front.Interfaces
+@inject IUsuarioService UsuarioService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Lista de Usuarios</PageTitle>
+
+<div class="usuarios-container">
+    <h2>Lista de Usuarios</h2>
+
+    <div class="mb-3">
+        <button class="btn btn-primary btn-lg" @onclick="NuevoUsuario">
+            <i class="fas fa-plus me-2"></i> Nuevo Usuario
+        </button>
+    </div>
+
+    @if (usuarios == null)
+    {
+        <div class="text-center my-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-2">Cargando usuarios...</p>
+        </div>
+    }
+    else if (!usuarios.Any())
+    {
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i> No hay usuarios registrados
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cédula</th>
+                        <th>Teléfono</th>
+                        <th>Fecha Nacimiento</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var usuario in usuarios)
+                    {
+                        <tr>
+                            <td>@usuario.Id</td>
+                            <td>@usuario.Nombre</td>
+                            <td>@usuario.Apellido</td>
+                            <td>@usuario.Cedula</td>
+                            <td>@usuario.Telefono</td>
+                            <td>@usuario.FechaNacimiento.ToString("dd/MM/yyyy")</td>
+                            <td class="text-end">
+                                <div class="btn-group" role="group">
+                                    <button class="btn btn-warning mx-1" @onclick="() => EditarUsuario(usuario.Id)"
+                                        title="Editar">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </button>
+                                    <button class="btn btn-danger mx-1" @onclick="() => ConfirmarEliminar(usuario)"
+                                        title="Eliminar">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+
+    @if (mostrarModal)
+    {
+        <div class="modal fade show" style="display: block; background: rgba(0,0,0,0.5);" id="confirmModal">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-danger text-white">
+                        <h5 class="modal-title">
+                            <i class="fas fa-exclamation-triangle me-2"></i>Confirmar eliminación
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" @onclick="CerrarModal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Está seguro que desea eliminar al usuario <strong>@usuarioAEliminar?.Nombre
+                                @usuarioAEliminar?.Apellido</strong> (Cédula: @usuarioAEliminar?.Cedula)?</p>
+                        <p class="text-muted">Esta acción no se puede deshacer.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" @onclick="CerrarModal">
+                            <i class="fas fa-times me-1"></i> Cancelar
+                        </button>
+                        <button type="button" class="btn btn-danger" @onclick="EliminarUsuario">
+                            <i class="fas fa-trash-alt me-1"></i> Eliminar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+    .usuarios-container {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin: 1rem auto;
+        max-width: 1200px;
+    }
+
+    h2 {
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 2px solid #f1f1f1;
+    }
+
+    .table {
+        margin-top: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .table th {
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+    }
+
+    .btn {
+        min-width: 40px;
+        padding: 0.375rem 0.75rem;
+        font-size: 0.9rem;
+    }
+
+    .btn i {
+        margin-right: 0.25rem;
+    }
+
+    .btn-group .btn {
+        margin: 0 2px;
+    }
+
+    .modal-content {
+        border: none;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header {
+        border-bottom: none;
+    }
+
+    .modal-footer {
+        border-top: none;
+    }
+</style>
+
+@code {
+    private List<Usuario>? usuarios;
+    private bool mostrarModal = false;
+    private Usuario? usuarioAEliminar;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await CargarUsuarios();
+    }
+
+    private async Task CargarUsuarios()
+    {
+        try
+        {
+            usuarios = await UsuarioService.GetUsuarios();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error cargando usuarios: {ex.Message}");
+        }
+    }
+
+    private void NuevoUsuario()
+    {
+        NavigationManager.NavigateTo("/usuario/nuevo");
+    }
+
+    private void EditarUsuario(int id)
+    {
+        NavigationManager.NavigateTo($"/usuario/editar/{id}");
+    }
+
+    private void ConfirmarEliminar(Usuario usuario)
+    {
+        usuarioAEliminar = usuario;
+        mostrarModal = true;
+        StateHasChanged();
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+        usuarioAEliminar = null;
+        StateHasChanged();
+    }
+
+    private async Task EliminarUsuario()
+    {
+        if (usuarioAEliminar != null)
+        {
+            try
+            {
+                await UsuarioService.DeleteUsuario(usuarioAEliminar.Id);
+                await CargarUsuarios();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error eliminando usuario: {ex.Message}");
+            }
+        }
+        CerrarModal();
+    }
+}

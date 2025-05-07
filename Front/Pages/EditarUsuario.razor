@@ -1,0 +1,143 @@
+@page "/usuario/editar/{Id:int}"
+@using Front.Models
+@using Front.Services
+@using Front.Interfaces
+@inject IUsuarioService UsuarioService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Editar Usuario</PageTitle>
+
+<div class="editar-usuario-container">
+    <h2>Editar Usuario</h2>
+
+    @if (usuario == null)
+    {
+        <div class="text-center my-5">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando...</span>
+            </div>
+            <p class="mt-2">Cargando datos del usuario...</p>
+        </div>
+    }
+    else
+    {
+        <EditForm Model="usuario" OnValidSubmit="GuardarCambios">
+            <DataAnnotationsValidator />
+            <ValidationSummary />
+
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <InputText id="nombre" @bind-Value="usuario.Nombre" class="form-control" />
+                <ValidationMessage For="@(() => usuario.Nombre)" />
+            </div>
+
+            <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <InputText id="apellido" @bind-Value="usuario.Apellido" class="form-control" />
+                <ValidationMessage For="@(() => usuario.Apellido)" />
+            </div>
+
+            <div class="mb-3">
+                <label for="cedula" class="form-label">Cédula</label>
+                <InputText id="cedula" @bind-Value="usuario.Cedula" class="form-control" />
+                <ValidationMessage For="@(() => usuario.Cedula)" />
+            </div>
+
+            <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <InputText id="direccion" @bind-Value="usuario.Direccion" class="form-control" />
+                <ValidationMessage For="@(() => usuario.Direccion)" />
+            </div>
+
+            <div class="mb-3">
+                <label for="telefono" class="form-label">Teléfono</label>
+                <InputText id="telefono" @bind-Value="usuario.Telefono" class="form-control" />
+                <ValidationMessage For="@(() => usuario.Telefono)" />
+            </div>
+
+            <div class="mb-3">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <InputDate id="fechaNacimiento" @bind-Value="usuario.FechaNacimiento" class="form-control" />
+                <ValidationMessage For="@(() => usuario.FechaNacimiento)" />
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button type="button" class="btn btn-secondary" @onclick="Cancelar">
+                    <i class="fas fa-times me-1"></i> Cancelar
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save me-1"></i> Guardar Cambios
+                </button>
+            </div>
+        </EditForm>
+    }
+</div>
+
+<style>
+    .editar-usuario-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        max-width: 800px;
+        margin: 2rem auto;
+    }
+
+    h2 {
+        color: #2c3e50;
+        margin-bottom: 2rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .form-control {
+        margin-bottom: 0.5rem;
+    }
+
+    .validation-message {
+        color: #dc3545;
+        font-size: 0.875rem;
+    }
+</style>
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private Usuario? usuario;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            usuario = await UsuarioService.GetUsuarioById(Id);
+            if (usuario == null)
+            {
+                NavigationManager.NavigateTo("/usuarios");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al cargar usuario: {ex.Message}");
+            NavigationManager.NavigateTo("/usuarios");
+        }
+    }
+
+    private async Task GuardarCambios()
+    {
+        try
+        {
+            await UsuarioService.UpdateUsuario(usuario);
+            NavigationManager.NavigateTo("/usuarios");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error al guardar cambios: {ex.Message}");
+        }
+    }
+
+    private void Cancelar()
+    {
+        NavigationManager.NavigateTo("/usuarios");
+    }
+}

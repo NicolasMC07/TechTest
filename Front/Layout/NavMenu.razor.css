@@ -1,0 +1,90 @@
+/* Estilos generales del sidebar */
+.navbar-toggler {
+    background-color: transparent;
+    border: none;
+}
+
+.top-row {
+    height: 3.5rem;
+    background-color: #2c3e50; /* Azul oscuro elegante */
+    transition: background-color 0.3s ease;
+}
+
+.top-row:hover {
+    background-color: #34495e; /* Azul un poco más claro al hover */
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+
+/* Iconos (mantenemos los mismos SVG pero con color blanco) */
+.bi {
+    display: inline-block;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    background-size: cover;
+    transition: transform 0.2s ease;
+    filter: brightness(0) invert(1); /* Asegura que los iconos sean blancos */
+}
+
+/* Items del menú */
+.nav-item {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-item ::deep a {
+    color: #ecf0f1; /* Texto claro */
+    height: 2.8rem;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-item ::deep a.active {
+    background-color: #3498db; /* Azul brillante para el item activo */
+    color: white;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.nav-item ::deep a:hover:not(.active) {
+    background-color: rgba(255,255,255,0.1);
+    color: #3498db;
+}
+
+.nav-item ::deep a:hover .bi {
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (min-width: 641px) {
+    .navbar-toggler {
+        display: none;
+    }
+
+    .collapse {
+        display: block;
+    }
+    
+    .nav-scrollable {
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+        background-color: #34495e; /* Fondo oscuro para el sidebar */
+        padding: 1rem 0.5rem;
+    }
+    
+    .top-row {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+}
